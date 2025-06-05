@@ -1,0 +1,72 @@
+body {
+    height: 100vh;
+    margin: 0;
+    background: #223;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    width: 230px;
+    height: 120px;
+    display: grid;
+    place-content: center;
+    color: white;
+    font-size: 20px;
+    --border-angle: 0turn;
+    --main-bg: conic-gradient(
+    from var(--border-angle),
+    #213,
+    #112 5%,
+    #112 5%,
+    #213 95%,
+    #213 95%
+    );
+    --gradient-border: conic-gradient(
+        from var(--border-angle),
+        transparent 25%,
+        #08f,
+        #f03 99%,
+        transparent
+    );
+    border: solid 5px transparent;
+    border-radius: 2em;
+    background:
+        var(--main-bg) padding-box,
+        var(--gradient-border) border-box,
+        var(--main-bg) border-box;
+    background-position: center center;
+    animation: bg-spin 3s linear infinite;
+}   
+
+.box:hover {
+    --main-bg: conic-gradient(
+        from var(--border-angle),
+        #ffffff,
+        #cececd 5%,
+        #cececd 5%,
+        #ffffff 95%,
+        #ffffff 95%
+    );
+    --gradient-border: conic-gradient(
+        from var(--border-angle),
+        transparent 25%,
+        aquamarine,
+        pink 99%,
+        transparent
+    );
+    color: black;
+}
+
+@keyframes bg-spin {
+    to {
+        --border-angle: 1turn;
+    }
+}
+
+@property --border-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+}
